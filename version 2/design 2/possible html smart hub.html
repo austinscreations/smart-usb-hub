@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>ESP Web Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <style>
+    html {font-family: Arial; display: inline-block; text-align: center;}
+    
+   
+   body { background-color: black; color: white; }
+
+    h2 {
+    font-size: 3.0rem;
+    color: #005500;
+    }
+
+    .name-status {
+     border-radius: .4rem;
+     font-weight: bold;
+     padding: .25rem .6rem;
+     display: inline-block;
+     margin-bottom: 1rem;
+    }
+    
+     .name-host {
+    font-size: 1.0rem;
+    margin-bottom: .4rem;
+    }
+    .name-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    }
+    .name-mac {
+    font-size: 1.0rem;
+    margin-bottom: 4.0rem;
+    }
+    
+   .menu-buttons{
+     margin-top: 1.0rem;
+     margin-bottom: 2.0rem;
+    }
+    
+   .status {
+     border: .25rem solid;
+     border-radius: .6rem;
+     font-weight: bold;
+     padding: 0.4rem;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 1.0rem;
+     margin: .5rem 1rem 1rem .5rem;
+    }
+        
+    .column1 {
+     font-weight: bold;
+     padding: 0.4rem;
+     display: inline-block;
+     font-size: 1.0rem;
+     text-align:left;
+    }
+    
+    .column3 {
+     font-weight: bold;
+     padding: 0.4rem;
+     display: inline-block;
+     font-size: 1.0rem;
+     text-align:right;
+    }
+    
+    .column4 {
+     font-weight: bold;
+     padding: 0.4rem;
+     display: inline-block;
+     font-size: 1.0rem;
+     text-align:left;
+    }
+    
+    p{
+     display: inline-block;
+     margin: 0rem;
+    }
+    
+     
+   .button {
+     border: .15rem solid;
+     border-radius: .4rem;
+     font-weight: bold;
+     padding: .25rem .6rem;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 1.0rem;
+     margin: .5rem .5rem .5rem .5rem;
+     cursor: pointer;
+    }
+   .button1 {
+   background-color: #005500;
+   color: white;
+   border-color: #00aa00;
+   }
+  
+  .button2:hover {
+  background-color: #00aa00;
+  color: white;
+  }
+
+   .mt-4 {
+    margin-top: 5.0rem;
+   }
+   .label.label-primary {
+    background: #005500;
+    color: #fff;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    font-size: 1.0rem;
+   }
+   .label.label-rounded {
+    border-radius: 5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    font-size: 1.0rem;
+   }
+   
+  </style>
+  
+</head>
+<body>
+   <h2>%title% Home</h2>
+   
+  
+   <div class = "menu-buttons">
+   <div class = "button button1">
+     <button1>Home</button>
+    </div>
+    <div class = "button button2">
+     <button2 onclick="location.href='/management'">Management</button>
+    </div>
+    <div class = "button button2">
+    <button2 onclick="darkFunction()">Dark Mode</button2>
+    </div>
+   </div>
+
+      <div class = "name-status" id="state" style="background:green">
+      <span class = "name-text">ONLINE</name-text></span>
+      </div>
+   
+    <div class = "name-host">
+    <span class = "name-text">IP Address:</name-text></span>
+    <span class = "host">%ipplaceholder%</host></span>
+   </div>
+   
+   <div class = "name-mac">
+    <span class = "name-text">MAC Address:</name-text></span>
+    <span class = "host">%macplaceholder%</host></span>
+   </div>
+   
+   <div class = "menu-buttons">
+   <div class = "menu-main">
+     <div class = "status" id="status1" style="border-color: grey">
+     <div class = "row">
+      <div class = "column1">
+       <div class ="text">Volts:</div>
+       <div class ="text">Amps:</div>
+       <div class ="text"><p></p></div>
+       <div class ="text">Power:</div>
+       <div class ="text">Data:</div>
+       <div class ="text">CMND:</div>
+      </div>
+        
+      <div class = "column1">
+       <div class ="text">5.08</div>
+       <div class ="text">0.00</div>
+       <div class ="text"><p></p></div>
+       <div class ="text">Disabled</div>
+       <div class ="text">Disabled</div>
+       <div class ="text">SINGLE</div>
+      </div>
+      </div>
+      
+      <div class = "button button2">
+       <button1>Toggle</button>
+      </div>
+      
+     </div>
+     <div class = "status" id="status2" style="border-color: grey">
+     <div class = "row">
+      <div class = "column3">
+       <div class ="text">Volts:</div>
+       <div class ="text">Amps:</div>
+       <div class ="text"><p></p></div>
+       <div class ="text">Power:</div>
+       <div class ="text">Data:</div>
+       <div class ="text">CMND:</div>
+      </div>
+        
+      <div class = "column4">
+       <div class ="text">5.08</div>
+       <div class ="text">0.00</div>
+       <div class ="text"><p></p></div>
+       <div class ="text">Disabled</div>
+       <div class ="text">Disabled</div>
+       <div class ="text">SINGLE</div>
+      </div>
+      </div>
+      
+      <div class = "button button2">
+       <button1>Toggle</button>
+      </div>
+      
+     </div>
+   </div>
+   <div class = "menu-main">
+     <div class = "status" id="status3" style="border-color: grey">
+      <div class = "row">
+      <div class = "column3">
+       <div class ="text">Volts:</div>
+       <div class ="text">Amps:</div>
+       <div class ="text"><p></p></div>
+       <div class ="text">Power:</div>
+       <div class ="text">Data:</div>
+       <div class ="text">CMND:</div>
+      </div>
+        
+      <div class = "column4">
+       <div class ="text">5.08</div>
+       <div class ="text">0.00</div>
+       <div class ="text"><p></p></div>
+       <div class ="text">Disabled</div>
+       <div class ="text">Disabled</div>
+       <div class ="text">SINGLE</div>
+      </div>
+      </div>
+      
+      <div class = "button button2">
+       <button1>Toggle</button>
+      </div>
+      
+     </div>
+     <div class = "status" id="status4" style="border-color: grey">
+      <div class = "row">
+      <div class = "column1">
+       <div class ="text">Volts:</div>
+       <div class ="text">Amps:</div>
+       <div class ="text"><p></p></div>
+       <div class ="text">Power:</div>
+       <div class ="text">Data:</div>
+       <div class ="text">CMND:</div>
+      </div>
+        
+      <div class = "column1">
+       <div class ="text">5.08</div>
+       <div class ="text">0.00</div>
+       <div class ="text"><p></p></div>
+       <div class ="text">Disabled</div>
+       <div class ="text">Disabled</div>
+       <div class ="text">SINGLE</div>
+      </div>
+      </div>
+      
+      <div class = "button button2">
+       <button1>Toggle</button>
+      </div>
+     </div>
+    </div>
+   </div>
+   
+    <div class="columns mt-4">
+      <div class="col-12 text-center">
+       <span class="label label-rounded mr-2">%IDplaceholder%</span> 
+       -
+       <span class="label label-rounded label-primary ml-2">%processorplaceholder%</span>
+       -
+       <span class="label label-rounded mr-2">%typeplaceholder%</span>
+     </div>
+     </div>
+    </div> 
+  </div>
+  
+   <script>
+
+  
+function darkFunction() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/darkmode?state=1", true);
+  xhr.send();
+  setTimeout(function () {window.location.href = "/home";}, 100); 
+}
+
+function checkConnectionStatus()
+{
+    let xhttp = new XMLHttpRequest();
+    xhttp.timeout = 2000;
+    xhttp.onreadystatechange = function()
+    {
+        if (this.readyState == 4)
+        {
+            if (this.status == 200)
+            {
+                document.getElementById("state").style.background = "green";
+            }
+            else
+            {
+                document.getElementById("state").style.background = "red";
+            }
+             setTimeout(checkConnectionStatus, 5000);
+            // Repeat our status check only once there's a result
+        }
+    }
+    xhttp.open("GET", "/state", true);
+    xhttp.send();
+}
+// Initial status check
+setTimeout(checkConnectionStatus, 5000);
+
+
+</script>
+</body>
+</html>
