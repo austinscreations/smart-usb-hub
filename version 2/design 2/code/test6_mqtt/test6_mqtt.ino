@@ -10,7 +10,7 @@
  *   - per port current config                                               // done
  *   - over ride mode                                                        // 
  *   - led control                                                           // 
- *   - port control                                                          // started 2021-08-17
+ *   - port control                                                          // done
  *   - brightness (non override mode)                                        //
  * over ride mode                                                            // 
  *   - control ports                                                         //
