@@ -1,7 +1,7 @@
 /* Our webpage needs style - This CSS helps with that */
 
-#ifndef CSS_h
-#define CSS_h
+#ifndef css_h
+#define css_h
 
 const char CSS_STYLE[] PROGMEM = R"rawliteral(
     <style>
