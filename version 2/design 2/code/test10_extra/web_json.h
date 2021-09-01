@@ -359,7 +359,7 @@ void webSENDjson(){
               doc["d0"] = "DISABLE";                      // data is disabled
             }
 
-            if (port_state[0] == 1)                       // power is on
+            if (port_state[0] == 1)                       // power is on  
             {
               if (overrideMODE == false)                  // not in override mode
               {
@@ -1064,7 +1064,7 @@ void webSENDjson(){
         doc["d1"] = "DISABLE";                            // data is disabled
       }
 
-      //--------------------------------------------------------
+//--------------------------------------------------------
       if (port_INA[2] != true){                           // INA on port 2 has been found
            char webvolt1[8];
            sprintf(webvolt1, "%.2f", busvoltage);         // find the current system voltage
@@ -1593,7 +1593,7 @@ void webSENDjson(){
         doc["d2"] = "DISABLE";                            // data is disabled
       }
 
-      //--------------------------------------------------------
+//--------------------------------------------------------
       if (port_INA[3] != true){                           // INA on port 2 has been found
            char webvolt1[8];
            sprintf(webvolt1, "%.2f", busvoltage);         // find the current system voltage
@@ -1957,7 +1957,7 @@ void webSENDjson(){
                 if (whinew[3] == 0)                       // white LED is off do basic RGB to HEX conversion
                 {
                   char hex[7] = {0};
-                  sprintf(hex,"%02X%02X%02X", rednew[2],grnnew[2],blunew[2]);
+                  sprintf(hex,"%02X%02X%02X", rednew[3],grnnew[3],blunew[3]);
                   if (ledmode[3] == 2)                    // we are flashing this LED
                   {
                     if (ledState == HIGH)                 // LED is on
