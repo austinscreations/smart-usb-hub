@@ -189,7 +189,7 @@ void get_INA(uint8_t port) // send what port you need a value calcuated for
         port_state[port] = 10;                   // this port is over current set error mode
         neo_update[port] = true;
         mcp_update[port] = true;
-        sprintf_P(mqtt_amp_buffer, PSTR("{\"NOTE\":\"%s\", \"Set Point\":%d, \"Port\":%d, \"milliAmps\":%d}"), "Over Current On Port", (int)portcurrent[port], (port+1), (int)EMA_C[port]);
+        sprintf_P(mqtt_amp_buffer, PSTR("{\"Mode\":\"%s\", \"Set Point\":%d, \"Port\":%d, \"milliAmps\":%d}"), "Over Current On Port", (int)portcurrent[port], (port+1), (int)EMA_C[port]);
         client.publish(out_topic2, mqtt_amp_buffer);
       }
 
@@ -203,7 +203,7 @@ void get_INA(uint8_t port) // send what port you need a value calcuated for
         neo_update[c] = true;
         mcp_update[c] = true;
       }
-        sprintf_P(mqtt_amp_buffer, PSTR("{\"NOTE\":\"%s\", \"Set Point\":%d, \"Total mA\":%d, \"Port 1 mA\":%d, \"Port 2 mA\":%d, \"Port 3 mA\":%d, \"Port 4 mA\":%d }"), "Over Current On HUB", (int)(systemcurrent - 500), (int)CALCmaxtotal, (int)EMA_C[0], (int)EMA_C[1] , (int)EMA_C[2], (int)EMA_C[3]);
+        sprintf_P(mqtt_amp_buffer, PSTR("{\"Mode\":\"%s\", \"Set Point\":%d, \"Total mA\":%d, \"Port 1 mA\":%d, \"Port 2 mA\":%d, \"Port 3 mA\":%d, \"Port 4 mA\":%d }"), "Over Current On HUB", (int)(systemcurrent - 500), (int)CALCmaxtotal, (int)EMA_C[0], (int)EMA_C[1] , (int)EMA_C[2], (int)EMA_C[3]);
         client.publish(out_topic2, mqtt_amp_buffer);
     }
     lastINAread[port] = millis();
