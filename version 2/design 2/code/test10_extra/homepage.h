@@ -63,7 +63,7 @@ const char home_html[] PROGMEM = R"rawliteral(
 
         <div class = "name-sketch">
           <span class = "name-text">Software Version: </name-text></span>
-          <span class = "host">1.0.0</host></span>
+          <span class = "host">1.0.1</host></span>
         </div>
 
         </div> <!-- border -->
