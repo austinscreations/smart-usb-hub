@@ -46,25 +46,25 @@ const char home_html[] PROGMEM = R"rawliteral(
 
       <div class = "border">
             
-        <div class = "name-host">
-          <span class = "name-text">IP Address: </name-text></span>
-          <span class = "host">%ipplaceholder%</host></span>
-        </div>
-
-        <div class = "name-mac">
-          <span class = "name-text">MAC Address: </name-text></span>
-          <span class = "host">%macplaceholder%</host></span>
-        </div>
-
-        <div class = "name-sketch">
-          <span class = "name-text">Memory - Sketch Size: </name-text></span>
-          <span class = "host">%memsketch%</host></span>
-        </div>
-
-        <div class = "name-sketch">
-          <span class = "name-text">Software Version: </name-text></span>
-          <span class = "host">1.0.2</host></span>
-        </div>
+        <div class = "row">
+            <div class = "innerl">
+              <div class = "column1">
+               <div class = "name-text">IP Address: </name-text></div>
+               <div class = "name-text">MAC Address: </name-text></div>
+               <div class = "name-text">Memory - Sketch Size: </name-text></div>
+               <div class = "name-text">Software Version: </name-text></div>
+               </div> <!-- column1 -->
+               </div> <!-- inner -->
+               
+             <div class = "innerr">
+              <div class = "column2">
+               <div class = "host-text">%ipplaceholder%</host></div>
+               <div class = "host-text">%macplaceholder%</host></div>
+               <div class = "host-text">%memsketch%</host></div>
+               <div class = "host-text">1.0.3</host></div>
+              </div> <!-- column2 -->
+              </div> <!-- inner -->
+            </div> <!-- row -->
 
         </div> <!-- border -->
 

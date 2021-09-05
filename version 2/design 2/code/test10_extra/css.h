@@ -248,6 +248,36 @@ const char CSS_STYLE[] PROGMEM = R"rawliteral(
      display: inline-block;
     }
 
+    .column1 {
+     font-weight: bold;
+     padding: 0.4rem;
+     display: inline-block;
+     font-size: 1.0rem;
+     text-align:right;
+    }
+   
+    .column2 {
+     padding: 0.4rem;
+     display: inline-block;
+     font-size: 1.0rem;
+     text-align:left;
+    }
+
+    .host-text {
+    padding-top: 0.125rem;
+    padding-bottom:0.125rem;
+    }
+    
+    .innerl {
+     width: 14rem;
+     display: inline-block;
+    }
+    .innerr {
+     text-align:left;
+     width: 15.7rem;
+     display: inline-block;
+    }
+
    input:invalid {
     border: 2px dashed red;
    }
