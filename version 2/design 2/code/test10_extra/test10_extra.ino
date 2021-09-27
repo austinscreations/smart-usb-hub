@@ -43,6 +43,10 @@
 #include <ArduinoJson.h>
 #include "debug.h"             // embeded degug library
 
+
+#include "config.h"             // config information
+#include "factory_settings.h"   // factory reset config
+
 #if defined(ESP8266)
     #include "ESP8266WiFi.h"
     #include "ESPAsyncTCP.h"
@@ -56,10 +60,6 @@
     #include "esp_task_wdt.h"
     #include "LITTLEFS.h"
 #endif
-
-#include "config.h"             // config information
-#include "factory_settings.h"   // factory reset config
-
 
 #include <PubSubClient.h>       // For MQTT
 #include "buttons.h"            // embeded button library for handling multi press events
