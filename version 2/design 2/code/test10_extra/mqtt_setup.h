@@ -397,36 +397,75 @@ void reconnect() {
    colorWipe(0,0,0,220);
 
     Serial.print("Attempting MQTT connection...");
-    if (client.connect(host,mqtt_username,mqtt_password,out_heart, mqtt_lwt_qos, mqtt_lwt_retain, "0")) {
-      IPaddress =  WiFi.localIP().toString();
-      Serial.println("mqtt connected");
-      connected_update = true;
-      // Once connected, publish an announcement...
-      strcpy(connectphrase, "connected = ");
-      strcat(connectphrase, host);
-      strcat(connectphrase, "  IP Address = ");
-      const char * c = IPaddress.c_str();
-      strcat(connectphrase, c); // ip address
-      const char* phrase = connectphrase;
-      client.publish("outTopic",phrase);
-      byte lwt_payload[] = { '1' };
-      client.publish(out_heart, lwt_payload, 1, mqtt_lwt_retain);
-      // ... and resubscribe
-      client.subscribe("flash");
-      client.subscribe(in_topic1);
-      client.subscribe(in_topic2);
-      client.subscribe(in_topic3);
-      client.subscribe(in_topic4);
-      client.subscribe(in_topic5);
-      client.subscribe(in_topic6);
-
-    } else {
+    if (strcmp(mqtt_username, "0") == 0) // no user name for mqtt
+    {
+      if (client.connect(host,out_heart, mqtt_lwt_qos, mqtt_lwt_retain, "0")) 
+      {
+         IPaddress =  WiFi.localIP().toString();
+         Serial.println("mqtt connected");
+         connected_update = true;
+         // Once connected, publish an announcement...
+         strcpy(connectphrase, "connected = ");
+         strcat(connectphrase, host);
+         strcat(connectphrase, "  IP Address = ");
+         const char * c = IPaddress.c_str();
+         strcat(connectphrase, c); // ip address
+         const char* phrase = connectphrase;
+         client.publish("outTopic",phrase);
+         byte lwt_payload[] = { '1' };
+         client.publish(out_heart, lwt_payload, 1, mqtt_lwt_retain);
+         // ... and resubscribe
+         client.subscribe("flash");
+         client.subscribe(in_topic1);
+         client.subscribe(in_topic2);
+         client.subscribe(in_topic3);
+         client.subscribe(in_topic4);
+         client.subscribe(in_topic5);
+         client.subscribe(in_topic6);
+      }
+      else 
+      {
+        Serial.print("failed, rc=");
+        Serial.print(client.state());
+        Serial.println(" try again in 5 seconds");
+        // Wait 5 seconds before retrying
+        delay(5000);
+     }
+    }
+    else
+    {
+      if (client.connect(host,mqtt_username,mqtt_password,out_heart, mqtt_lwt_qos, mqtt_lwt_retain, "0")) 
+      {
+         IPaddress =  WiFi.localIP().toString();
+         Serial.println("mqtt connected");
+         connected_update = true;
+         // Once connected, publish an announcement...
+         strcpy(connectphrase, "connected = ");
+         strcat(connectphrase, host);
+         strcat(connectphrase, "  IP Address = ");
+         const char * c = IPaddress.c_str();
+         strcat(connectphrase, c); // ip address
+         const char* phrase = connectphrase;
+         client.publish("outTopic",phrase);
+         byte lwt_payload[] = { '1' };
+         client.publish(out_heart, lwt_payload, 1, mqtt_lwt_retain);
+         // ... and resubscribe
+         client.subscribe("flash");
+         client.subscribe(in_topic1);
+         client.subscribe(in_topic2);
+         client.subscribe(in_topic3);
+         client.subscribe(in_topic4);
+         client.subscribe(in_topic5);
+         client.subscribe(in_topic6);
+      }
+      else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
       Serial.println(" try again in 5 seconds");
 //       Wait 5 seconds before retrying
       delay(5000);
      }
+    }
   }
 }
 

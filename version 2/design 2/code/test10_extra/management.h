@@ -78,7 +78,7 @@ const char management_html[] PROGMEM = R"rawliteral(
                <div class = "host-text">%ipplaceholder%</host></div>
                <div class = "host-text">%macplaceholder%</host></div>
                <div class = "host-text">%memsketch%</host></div>
-               <div class = "host-text">1.0.3</host></div>
+               <div class = "host-text">1.0.4</host></div>
               </div> <!-- column2 -->
               </div> <!-- inner -->
             </div> <!-- row -->
