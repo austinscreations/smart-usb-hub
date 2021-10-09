@@ -1,6 +1,9 @@
 # smart-usb-hub
 a custom usb hub for tinkers that can interface with smart home systems and provide data on power usage of a device.
 
+2020-10-08 
+added CAD files for usb2.0 for those who may want to 3d print their own case
+
 2020-08-27
 version 2 is created, has 4 usb ports, mosfet is rated for 3 amps, external power supply notifies the MCU which can allow increased current alotment in programming. eg: max 500ma under usb input vs max 5A (shared by all ports) under power supply usage (current limited by dc-dc converter)
 
